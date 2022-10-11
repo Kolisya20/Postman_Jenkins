@@ -1,0 +1,95 @@
+Started by remote host 127.0.0.1
+Running as SYSTEM
+Building in workspace C:\Users\y_kolisnichenko\.jenkins\workspace\Postman_Newman_Test_From_Github_HTTP
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\y_kolisnichenko\.jenkins\workspace\Postman_Newman_Test_From_Github_HTTP\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/Kolisya20/Postman_Jenkins.git # timeout=10
+Fetching upstream changes from https://github.com/Kolisya20/Postman_Jenkins.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.37.1.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/Kolisya20/Postman_Jenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision b3afa18ff098bcb1f04100d782031660a2306cc4 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f b3afa18ff098bcb1f04100d782031660a2306cc4 # timeout=10
+Commit message: "add files to the repo"
+ > git.exe rev-list --no-walk b3afa18ff098bcb1f04100d782031660a2306cc4 # timeout=10
+[Postman_Newman_Test_From_Github_HTTP] $ cmd /c call C:\Users\Y_KOLI~1\AppData\Local\Temp\jenkins10693910260191896994.bat
+
+C:\Users\y_kolisnichenko\.jenkins\workspace\Postman_Newman_Test_From_Github_HTTP>newman run collection.json -e environment.json -r htmlextra,cli,junit --reporter-htmlextra-export newman/report.html --reporter-junit-export newman/report.xml 
+newman
+
+Dropbox
+
+→ upload File
+  POST https://api.dropbox.com/oauth2/token [200 OK, 684B, 304ms]
+  ┌
+  │ 'Update the token'
+  └
+  POST https://content.dropboxapi.com/2/files/upload [200 OK, 862B, 1139ms]
+  √  Status code is 200
+  √  path to downloaded file should contains file name
+
+→ list_folder
+  POST https://api.dropbox.com/oauth2/token [200 OK, 684B, 226ms]
+  ┌
+  │ 'Update the token'
+  └
+  POST https://api.dropboxapi.com/2/files/list_folder [200 OK, 1.03kB, 437ms]
+  √  Status code is 200
+  √  entries should be
+  √  metadata of uploaded and exist files must be the same
+
+→ get_metadata
+  POST https://api.dropbox.com/oauth2/token [200 OK, 684B, 178ms]
+  ┌
+  │ 'Update the token'
+  └
+  POST https://api.dropboxapi.com/2/files/get_metadata [200 OK, 787B, 363ms]
+  √  Status code is 200
+  √  metadata of downloaded i leleted file have to be the same
+
+→ delete
+  POST https://api.dropbox.com/oauth2/token [200 OK, 684B, 165ms]
+  ┌
+  │ 'Update the token'
+  └
+  POST https://api.dropboxapi.com/2/files/delete_v2 [200 OK, 801B, 746ms]
+  √  Status code is 200
+  √  metadata of downloaded i leleted file have to be the same
+
+→ delete negative scenario
+  POST https://api.dropbox.com/oauth2/token [200 OK, 684B, 169ms]
+  ┌
+  │ 'Update the token'
+  └
+  POST https://api.dropboxapi.com/2/files/delete_v2 [409 Conflict, 491B, 235ms]
+  √  Status code is 409
+  √  should have error.tag status Not found
+
+┌─────────────────────────┬─────────────────────┬─────────────────────┐
+│                         │            executed │              failed │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              iterations │                   1 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│                requests │                  10 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│            test-scripts │                  10 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│      prerequest-scripts │                   5 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              assertions │                  11 │                   0 │
+├─────────────────────────┴─────────────────────┴─────────────────────┤
+│ total run duration: 4.5s                                            │
+├─────────────────────────────────────────────────────────────────────┤
+│ total data received: 2.86kB (approx)                                │
+├─────────────────────────────────────────────────────────────────────┤
+│ average response time: 396ms [min: 165ms, max: 1139ms, s.d.: 298ms] │
+└─────────────────────────────────────────────────────────────────────┘
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at PROJECT level C:\Users\y_kolisnichenko\.jenkins\workspace\Postman_Newman_Test_From_Github_HTTP\newman to C:\Users\y_kolisnichenko\.jenkins\jobs\Postman_Newman_Test_From_Github_HTTP\htmlreports\HTML_20Report
+Recording test results
+[Checks API] No suitable checks publisher found.
+Finished: SUCCESS
