@@ -1,6 +1,6 @@
 # Jenkins_Postman
 ## Create Jenkins local  server 
-	1. [download jenkins.war file] (https://get.jenkins.io/war-stable/2.361.2/jenkins.war)
+	1. [download jenkins.war file](https://get.jenkins.io/war-stable/2.361.2/jenkins.war)
 	2. open terminal
 	3. swith to the directory with downloaded file
 	4. to start server run `java -Dfile.encoding=UTF8 -jar jenkins.war`
